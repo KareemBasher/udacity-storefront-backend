@@ -1,18 +1,19 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application } from 'express'
 import morgan from 'morgan'
+import users_routes from './handlers/users'
+import bp from 'body-parser'
 
 const PORT = process.env.PORT || 3000
+
 // create an instance server
 const app: Application = express()
-// HTTP request logger middleware
-app.use(morgan('short'))
 
-// add routing for / path
-app.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'Hello World 🌍'
-  })
-})
+// Middleware
+app.use(morgan('short'))
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
+
+users_routes(app)
 
 // start express server
 app.listen(PORT, () => {
