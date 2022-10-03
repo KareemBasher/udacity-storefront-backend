@@ -9,14 +9,24 @@ const userModel = new UserModel()
 
 // Showing all users
 const index = async (req: Request, res: Response) => {
-  const users = await userModel.index()
-  res.json(users)
+  try {
+    const users = await userModel.index()
+    res.json(users)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Showing a user using their ID
 const show = async (req: Request, res: Response) => {
-  const user = await userModel.show(req.params.id as string)
-  res.json(user)
+  try {
+    const user = await userModel.show(req.params.id as string)
+    res.json(user)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Creating a user
@@ -27,10 +37,14 @@ const create = async (req: Request, res: Response) => {
     password: req.body.passowrd
   }
 
-  const token = jwt.sign(userObj, config.signiture as string)
-
-  await userModel.create(userObj)
-  res.json(token)
+  try {
+    const token = jwt.sign(userObj, config.signiture as string)
+    await userModel.create(userObj)
+    res.json(token)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Updating a user
@@ -41,14 +55,24 @@ const update = async (req: Request, res: Response) => {
     password: req.body.passowrd
   }
 
-  const user = await userModel.update(userObj, req.params.id as string)
-  res.json(user)
+  try {
+    const user = await userModel.update(userObj, req.params.id as string)
+    res.json(user)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Deleting a user
 const deleteUser = async (req: Request, res: Response) => {
-  const user = await userModel.delete(req.params.id as string)
-  res.json(user)
+  try {
+    const user = await userModel.delete(req.params.id as string)
+    res.json(user)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // User routes
