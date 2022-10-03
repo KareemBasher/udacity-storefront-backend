@@ -72,7 +72,7 @@ const deleteProduct = async (req: Request, res: Response) => {
   }
 }
 
-// User routes
+// Product routes
 const product_routes = (app: Application) => {
   app.get('/products', index)
   app.get('/products/:id', show)
