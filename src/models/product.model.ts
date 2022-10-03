@@ -1,5 +1,4 @@
 import db from '../database'
-import config from '../config'
 import Product from '../types/product.type'
 
 class ProductModel {
@@ -31,7 +30,7 @@ class ProductModel {
     }
   }
 
-  // Creating a new user
+  // Creating a new product
   async create(product: Product): Promise<Product> {
     try {
       const connection = await db.connect()
@@ -48,7 +47,7 @@ class ProductModel {
     }
   }
 
-  // Updating a user
+  // Updating a product
   async update(product: Product, id: string): Promise<Product> {
     try {
       const connection = await db.connect()
@@ -71,7 +70,7 @@ class ProductModel {
     }
   }
 
-  // Deleting a user
+  // Deleting a product
   async delete(id: string): Promise<Product> {
     try {
       const connection = await db.connect()
