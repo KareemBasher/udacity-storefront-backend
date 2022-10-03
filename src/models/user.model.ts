@@ -11,7 +11,6 @@ const hashPassowrd = (password: string) => {
 
 // DB model for the users table
 class UserModel {
-  [x: string]: any
   // Showing all users
   async index(): Promise<User[]> {
     try {
