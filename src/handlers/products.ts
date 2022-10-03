@@ -7,14 +7,24 @@ const productModel = new ProductModel()
 
 // Showing all products
 const index = async (req: Request, res: Response) => {
-  const products = await productModel.index()
-  res.json(products)
+  try {
+    const products = await productModel.index()
+    res.json(products)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Showing a product using its ID
 const show = async (req: Request, res: Response) => {
-  const product = await productModel.show(req.params.id as string)
-  res.json(product)
+  try {
+    const product = await productModel.show(req.params.id as string)
+    res.json(product)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Creating a product
@@ -25,8 +35,13 @@ const create = async (req: Request, res: Response) => {
     category: req.body.category
   }
 
-  const product = await productModel.create(productObj)
-  res.json(product)
+  try {
+    const product = await productModel.create(productObj)
+    res.json(product)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Updating a product
@@ -37,14 +52,24 @@ const update = async (req: Request, res: Response) => {
     category: req.body.category
   }
 
-  const product = await productModel.update(productObj, req.params.id as string)
-  res.json(product)
+  try {
+    const product = await productModel.update(productObj, req.params.id as string)
+    res.json(product)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // Deleting a product
 const deleteProduct = async (req: Request, res: Response) => {
-  const product = await productModel.delete(req.params.id as string)
-  res.json(product)
+  try {
+    const product = await productModel.delete(req.params.id as string)
+    res.json(product)
+  } catch (error) {
+    res.status(400)
+    res.json(error)
+  }
 }
 
 // User routes
