@@ -1,6 +1,7 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
 import users_routes from './handlers/users'
+import product_routes from './handlers/products'
 import bp from 'body-parser'
 
 const PORT = process.env.PORT || 3000
@@ -14,6 +15,7 @@ app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
 
 users_routes(app)
+product_routes(app)
 
 // start express server
 app.listen(PORT, () => {
