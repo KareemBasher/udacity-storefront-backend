@@ -2,6 +2,7 @@ import supertest from 'supertest'
 import app from '../index'
 import jwt from 'jsonwebtoken'
 import config from '../config'
+import User from '../types/user.type'
 
 // create a request object
 const request = supertest(app)
@@ -22,7 +23,7 @@ describe('Test response for the /users enpoint', () => {
     expect(response.status).toEqual(200)
   })
 
-  const body = {
+  const body: User = {
     first_name: 'John',
     last_name: 'Smith',
     password: 'HakunaMatata'
