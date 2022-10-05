@@ -3,11 +3,19 @@ import app from '../index'
 import jwt from 'jsonwebtoken'
 import config from '../config'
 import Product from '../types/product.type'
+import db from '../database'
 
 // create a request object
 const request = supertest(app)
 
 describe('Test response for the /products enpoint', () => {
+  afterAll(async () => {
+    const connection = await db.connect()
+    const sql = `DELETE FROM products;\n ALTER SEQUENCE products_id_seq RESTART WITH 1;\n`
+    await connection.query(sql)
+    connection.release()
+  })
+
   const tokenBody = {
     user: 'admin'
   }
@@ -24,7 +32,7 @@ describe('Test response for the /products enpoint', () => {
   })
 
   const body: Product = {
-    name: 'Apples',
+    product_name: 'Apples',
     price: 2,
     category: 'Food'
   }
