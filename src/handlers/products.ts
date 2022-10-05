@@ -30,7 +30,7 @@ const show = async (req: Request, res: Response) => {
 // Creating a product
 const create = async (req: Request, res: Response) => {
   const productObj: Product = {
-    name: req.body.name,
+    product_name: req.body.product_name,
     price: req.body.price,
     category: req.body.category
   }
@@ -47,7 +47,7 @@ const create = async (req: Request, res: Response) => {
 // Updating a product
 const update = async (req: Request, res: Response) => {
   const productObj: Product = {
-    name: req.body.name,
+    product_name: req.body.product_name,
     price: req.body.price,
     category: req.body.category
   }

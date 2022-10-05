@@ -38,7 +38,11 @@ class ProductModel {
                    VALUES ($1, $2, $3)
                    RETURNING id, product_name, price, category`
 
-      const result = await connection.query(sql, [product.name, product.price, product.category])
+      const result = await connection.query(sql, [
+        product.product_name,
+        product.price,
+        product.category
+      ])
 
       connection.release()
       return result.rows[0]
@@ -57,7 +61,7 @@ class ProductModel {
                    RETURNING id, product_name, price, category`
 
       const result = await connection.query(sql, [
-        product.name,
+        product.product_name,
         product.price,
         product.category,
         id
