@@ -105,7 +105,7 @@ const order_routes = (app: Application) => {
   app.patch('/orders/:id', authenticateToken, update)
   app.delete('/orders/:id', authenticateToken, deleteOrder)
   app.post('/orders/:id/products', authenticateToken, addProduct)
-  app.get('/orders/:id/users', ordersByUser)
+  app.get('/orders/:id/users', authenticateToken, ordersByUser)
 }
 
 export default order_routes
