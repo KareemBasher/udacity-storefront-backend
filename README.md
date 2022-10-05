@@ -19,7 +19,7 @@ Database port `5432`\
 Database name `store_front`\
 Testing database name `store_front_test`\
 User `store_front_dev`\
-Database password `pass123`\
+Database password `pass123`
 
 ## Running the API
 1. `npm install` to install all packages
