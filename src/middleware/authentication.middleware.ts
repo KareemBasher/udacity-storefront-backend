@@ -11,6 +11,7 @@ const validateTokenMiddleware = (req: Request, res: Response, next: NextFunction
 
     next()
   } catch (error) {
+    res.status(401)
     throw new Error(`Failed to validate token, ${error}`)
   }
 }
