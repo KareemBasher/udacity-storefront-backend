@@ -1,5 +1,6 @@
 import { Application, Request, Response } from 'express'
 import DashboardQueries from '../services/dashboard'
+import authenticateToken from '../middleware/authentication.middleware'
 
 const dashboard = new DashboardQueries()
 
@@ -39,7 +40,7 @@ const closedOrders = async (req: Request, res: Response) => {
 const dashboard_routes = (app: Application) => {
   app.get('/products/category/:category', category)
   app.get('/products/top/five', topProducts)
-  app.get('/orders/closed/:id/users', closedOrders)
+  app.get('/orders/closed/:id/users', authenticateToken, closedOrders)
 }
 
 export default dashboard_routes
