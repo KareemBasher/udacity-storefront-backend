@@ -2,6 +2,7 @@ import db from '../database'
 import bcrypt from 'bcrypt'
 import config from '../config'
 import User from '../types/user.type'
+import UserTest from '../types/user_test.type'
 
 // Function that gets passed a plain text passowrd and returns a hashed password using bcrypt
 const hashPassowrd = (password: string) => {
@@ -12,7 +13,7 @@ const hashPassowrd = (password: string) => {
 // DB model for the users table
 class UserModel {
   // Showing all users
-  async index(): Promise<User[]> {
+  async index(): Promise<UserTest[]> {
     try {
       const connection = await db.connect()
       const sql = `SELECT id, first_name, last_name FROM users`
@@ -26,7 +27,7 @@ class UserModel {
   }
 
   // Showing a specific user using their ID
-  async show(id: string): Promise<User> {
+  async show(id: string): Promise<UserTest> {
     try {
       const connection = await db.connect()
       const sql = `SELECT id, first_name, last_name FROM users WHERE id=($1)`
@@ -40,7 +41,7 @@ class UserModel {
   }
 
   // Creating a new user
-  async create(user: User): Promise<User> {
+  async create(user: User): Promise<UserTest> {
     try {
       const connection = await db.connect()
       const sql = `INSERT INTO users (first_name, last_name, password)
@@ -61,7 +62,7 @@ class UserModel {
   }
 
   // Updating a user
-  async update(user: User, id: string): Promise<User> {
+  async update(user: User, id: string): Promise<UserTest> {
     try {
       const connection = await db.connect()
       const sql = `UPDATE users
@@ -84,7 +85,7 @@ class UserModel {
   }
 
   // Deleting a user
-  async delete(id: string): Promise<User> {
+  async delete(id: string): Promise<UserTest> {
     try {
       const connection = await db.connect()
       const sql = `DELETE FROM users
