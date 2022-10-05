@@ -48,14 +48,21 @@ Database password `pass123`
 PORT=3000
 
 NODE_ENV=dev
+
 POSTGRES_HOST=localhost
+
 POSTGRES_PORT=5432
+
 POSTGRES_DB=store_front
+
 POSTGRES_DB_TEST=store_front_test
+
 POSTGRES_USER=store_front_dev
+
 POSTGRES_PASSWORD=pass123
 
 BCRYPT_SECRET=hakunaMatata
+
 SALT=10
 
 SIGNITURE=heIsOutOfLineButHeIsRight
