@@ -13,7 +13,7 @@ const index = async (req: Request, res: Response) => {
     const users = await userModel.index()
     res.json(users)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -24,7 +24,7 @@ const show = async (req: Request, res: Response) => {
     const user = await userModel.show(req.params.id as string)
     res.json(user)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -42,7 +42,7 @@ const create = async (req: Request, res: Response) => {
     await userModel.create(userObj)
     res.json(token)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -59,7 +59,7 @@ const update = async (req: Request, res: Response) => {
     const user = await userModel.update(userObj, req.params.id as string)
     res.json(user)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -70,7 +70,7 @@ const deleteUser = async (req: Request, res: Response) => {
     const user = await userModel.delete(req.params.id as string)
     res.json(user)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -79,7 +79,7 @@ const deleteUser = async (req: Request, res: Response) => {
 const users_routes = (app: Application) => {
   app.get('/users', authenticateToken, index)
   app.get('/users/:id', authenticateToken, show)
-  app.post('/users', authenticateToken, create)
+  app.post('/users', create)
   app.patch('/users/:id', authenticateToken, update)
   app.delete('/users/:id', authenticateToken, deleteUser)
 }

@@ -10,7 +10,7 @@ const category = async (req: Request, res: Response) => {
     const products = await dashboard.category(req.params.category as string)
     res.json(products)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -21,7 +21,7 @@ const topProducts = async (req: Request, res: Response) => {
     const products = await dashboard.topProducts()
     res.json(products)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -32,7 +32,7 @@ const closedOrders = async (req: Request, res: Response) => {
     const orders = await dashboard.closedOrders(req.params.id as string)
     res.json(orders)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }

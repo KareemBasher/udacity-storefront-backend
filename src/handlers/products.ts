@@ -11,7 +11,7 @@ const index = async (req: Request, res: Response) => {
     const products = await productModel.index()
     res.json(products)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -22,7 +22,7 @@ const show = async (req: Request, res: Response) => {
     const product = await productModel.show(req.params.id as string)
     res.json(product)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -39,7 +39,7 @@ const create = async (req: Request, res: Response) => {
     const product = await productModel.create(productObj)
     res.json(product)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -56,7 +56,7 @@ const update = async (req: Request, res: Response) => {
     const product = await productModel.update(productObj, req.params.id as string)
     res.json(product)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -67,7 +67,7 @@ const deleteProduct = async (req: Request, res: Response) => {
     const product = await productModel.delete(req.params.id as string)
     res.json(product)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }

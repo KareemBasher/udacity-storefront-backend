@@ -11,7 +11,7 @@ const index = async (req: Request, res: Response) => {
     const orders = await orderModel.index()
     res.json(orders)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -22,7 +22,7 @@ const show = async (req: Request, res: Response) => {
     const order = await orderModel.show(req.params.id as string)
     res.json(order)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -38,7 +38,7 @@ const create = async (req: Request, res: Response) => {
     const order = await orderModel.create(orderObj)
     res.json(order)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -54,7 +54,7 @@ const update = async (req: Request, res: Response) => {
     const order = await orderModel.update(orderObj, req.params.id as string)
     res.json(order)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -65,7 +65,7 @@ const deleteOrder = async (req: Request, res: Response) => {
     const order = await orderModel.delete(req.params.id as string)
     res.json(order)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -76,7 +76,7 @@ const ordersByUser = async (req: Request, res: Response) => {
     const orders = await orderModel.ordersByUser(req.params.id as string)
     res.json(orders)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
@@ -92,7 +92,7 @@ const addProduct = async (req: Request, res: Response) => {
     const addedProduct = await orderModel.addProduct(orderObj, req.params.id)
     res.json(addedProduct)
   } catch (error) {
-    res.status(400)
+    res.status(500)
     res.json(error)
   }
 }
