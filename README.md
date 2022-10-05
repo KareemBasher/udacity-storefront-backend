@@ -32,6 +32,8 @@ Database password `pass123`
 3. `npx db-migrate up` to run all migrations
 4. `npm start` to start the API
 
+The API runs on port `3000`
+
 #### Required environment  variables
 PORT=3000\
 NODE_ENV=dev\
