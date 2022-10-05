@@ -32,7 +32,7 @@ Database password `pass123`
 3. `npx db-migrate up` to run all migrations
 4. `npm start` to start the API
 
-#### Required enviroment variables
+#### Required environment  variables
 PORT=3000\
 NODE_ENV=dev\
 POSTGRES_HOST=localhost\
